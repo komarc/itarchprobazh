@@ -1,0 +1,17 @@
+trigger:
+  branches:
+    include:
+      - main   # This triggers the pipeline on any change to the 'main' branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.x'
+      addToPath: true
+
+  - script: |
+      python hello.py
+    displayName: 'Run hello.py'
